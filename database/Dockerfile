@@ -1,0 +1,5 @@
+FROM postgres:15-alpine
+
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=secret
+ENV POSTGRES_DB=mydb

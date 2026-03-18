@@ -1,0 +1,32 @@
+services:
+  db:
+    build: ./database
+    container_name: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - mynet
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: backend
+    depends_on:
+      - db
+    networks:
+      - mynet
+    environment:
+      DB_HOST: db
+      DB_USER: admin
+      DB_PASSWORD: secret
+      DB_NAME: mydb
+    ports:
+      - "3000:3000"
+    restart: always
+
+volumes:
+  pgdata:
+
+networks:
+  mynet:
+    driver: bridge
