@@ -41,7 +41,7 @@ No manual configuration required
 ## 2. Deployment
 
 Dockerfiles:
- - [Backend/Dockerfile](./Backend/Dockerfile)
+ - [Backend/Dockerfile](./backend/Dockerfile)
 ```
  FROM node:18-alpine AS builder
 
@@ -62,7 +62,7 @@ USER appuser
 EXPOSE 3000
 CMD ["node", "app.js"]
 ```
- - [Database/Dockerfile](./Database/Dockerfile)
+ - [Database/Dockerfile](./database/Dockerfile)
 ```FROM postgres:15-alpine
 
 ENV POSTGRES_USER=admin
